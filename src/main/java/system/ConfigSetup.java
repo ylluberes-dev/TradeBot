@@ -4,6 +4,7 @@ import com.binance.api.client.domain.general.RateLimit;
 import com.binance.api.client.domain.general.RateLimitType;
 import indicators.MACD;
 import indicators.RSI;
+import io.github.pixee.security.BoundedLineReader;
 import modes.Simulation;
 import trading.BuySell;
 import trading.Currency;
@@ -72,7 +73,7 @@ public class ConfigSetup {
         try (FileReader reader = new FileReader(file);
              BufferedReader br = new BufferedReader(reader)) {
             String line;
-            while ((line = br.readLine()) != null) {
+            while ((line = BoundedLineReader.readLine(br, 5_000_000)) != null) {
                 if (!line.isBlank() && !line.isEmpty()) {
                     setup.append(line).append("\n");
                 } else {
