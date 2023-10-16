@@ -103,10 +103,10 @@ public final class Collection {
             }
 
             String input = "";
-            while (!input.equalsIgnoreCase("new")) {
-                if (input.equalsIgnoreCase("quit")) {
+            while (!"new".equalsIgnoreCase(input)) {
+                if ("quit".equalsIgnoreCase(input)) {
                     System.exit(0);
-                } else if (input.equalsIgnoreCase("modes")) {
+                } else if ("modes".equalsIgnoreCase(input)) {
                     return false;
                 }
                 if (input.matches("\\d+")) {
@@ -145,10 +145,10 @@ public final class Collection {
                 System.out.println("---Temp backtesting files detected");
                 System.out.println("Type \"compile\" to attempt to compile the downloaded data or \"delete\" to delete them");
                 String input = sc.nextLine();
-                if (input.equalsIgnoreCase("delete")) {
+                if ("delete".equalsIgnoreCase(input)) {
                     deleteTemp();
                 }
-                if (input.equalsIgnoreCase("compile")) {
+                if ("compile".equalsIgnoreCase(input)) {
                     Long start = null;
                     String filename = null;
                     try {
@@ -214,7 +214,7 @@ public final class Collection {
             String finish = sc.nextLine();
             try {
                 startDate = dateFormat.parse(begin.replace("mn", "00:00:00"));
-                if (finish.equalsIgnoreCase("now")) {
+                if ("now".equalsIgnoreCase(finish)) {
                     stopDate = new Date(System.currentTimeMillis());
                 } else {
                     stopDate = dateFormat.parse(finish.replace("mn", "00:00:00"));
@@ -481,11 +481,11 @@ public final class Collection {
                 String s = sc.nextLine();
                 //TODO: Method to get csv with indicators for ML (5min, interval, realtime)
                 //https://github.com/markrkalder/crypto-ds/blob/transformer/src/main/java/ml/DataCalculator.java
-                if (s.equalsIgnoreCase("back")) {
+                if ("back".equalsIgnoreCase(s)) {
                     return;
-                } else if (s.equalsIgnoreCase("csv")) {
+                } else if ("csv".equalsIgnoreCase(s)) {
                     dataToCsv(filename);
-                } else if (s.equalsIgnoreCase("check")) {
+                } else if ("check".equalsIgnoreCase(s)) {
                     checkBacktestingData(filename);
                 }
             }

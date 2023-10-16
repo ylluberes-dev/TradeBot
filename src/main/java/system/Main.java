@@ -103,10 +103,10 @@ public class Main {
                     System.out.println("Type \"quit\" to quit");
                     System.out.println("Type \"modes\" to got back to mode selection.");
                     String s = sc.nextLine();
-                    if (s.equalsIgnoreCase("quit")) {
+                    if ("quit".equalsIgnoreCase(s)) {
                         System.exit(0);
                         break;
-                    } else if (s.equalsIgnoreCase("modes")) {
+                    } else if ("modes".equalsIgnoreCase(s)) {
                         returnToModes = true;
                         break;
                     }

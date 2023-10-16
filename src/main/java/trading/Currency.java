@@ -148,7 +148,7 @@ public class Currency implements Closeable {
         for (Indicator indicator : indicators) {
             String explanation = indicator.getExplanation();
             if (explanation == null) explanation = "";
-            builder.append(explanation.equals("") ? "" : explanation + "\t");
+            builder.append("".equals(explanation) ? "" : explanation + "\t");
         }
         return builder.toString();
     }
